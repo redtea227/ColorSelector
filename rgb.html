@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <style>
+    #bg {
+      width: 600px;
+      height: 400px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      margin-bottom: 10px;
+    }
+
+    #color {
+      font-size: 32px;
+      color: white;
+    }
+  </style>
+</head>
+
+<body>
+  <div id="bg">
+    <div id="color"></div>
+  </div>
+  <input type="button" value="R" onclick="rgb(this)">
+  <input type="button" value="G" onclick="rgb(this)">
+  <input type="button" value="B" onclick="rgb(this)">
+  <!-- <input type="button" value="?" onclick="rgb(this)"> -->
+  <script>
+    let bg = document.getElementById('bg'),
+      color = document.getElementById('color')
+    ansR = Math.floor(Math.random() * 256)
+    ansG = Math.floor(Math.random() * 256)
+    ansB = Math.floor(Math.random() * 256)
+    // console.log(ansR, ansG, ansB)
+    bg.style.backgroundColor = `rgb(${ansR},${ansG},${ansB})`;
+    color.textContent = bg.style.backgroundColor
+
+    function rgb(e) {
+      let ans = prompt("輸入數字範圍 0~255", "0");
+      if (ans < 0 || ans > 255 || ans!=Number(ans)) {
+        alert("必須是數字範圍 0~255")
+      } else {
+        if (e.value == 'R') {
+          ansR = ans;
+        } else if (e.value == 'G') {
+          ansG = ans;
+        } else if (e.value == 'B'){
+          ansB = ans;
+        } else if (e.value == 'B'){
+          ansB = ans;
+        }
+        bg.style.backgroundColor = `rgb(${ansR},${ansG},${ansB})`
+        color.textContent = bg.style.backgroundColor
+      }
+    }
+
+  </script>
+</body>
+
+</html>
